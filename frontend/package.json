@@ -1,0 +1,29 @@
+{
+  "name": "Project-starter",
+  "version": "0.1.0",
+  "description": "Project starter for eventbrite clone",
+  "main": "server.js",
+  "dependencies": {
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.9.0",
+    "express": "^4.15.4",
+    "nodemon": "^1.12.1",
+    "nunjucks": "^3.0.1"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "6.x || 8.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "lint": "eslint .",
+    "dev": "nodemon --exec \"npm run lint && npm start\""
+  },
+  "author": "Kyle Jensen",
+  "license": "ISC",
+  "repository": "https://github.com/yale-mgt-656/hw5.git"
+}
