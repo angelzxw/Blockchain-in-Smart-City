@@ -1,6 +1,6 @@
 const arrayOfBlocks = [
   {
-      id: -100,
+      id: -200,
       title: 'SOM House Party',
       // Note that JavaScript months are zero-indexed,
       // so, month zero is January. This is Jan 17th
