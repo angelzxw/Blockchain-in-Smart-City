@@ -1,4 +1,4 @@
-## Blockchain Smart City Application
+## Blockchain in Smart City Application
 This repository contains a blockchain based implementation of IoT Smart City Application
 Yuang Jiang | EE PhD | Yale University
 Angel Zhang | CS MS | Yale University
