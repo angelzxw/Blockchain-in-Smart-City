@@ -1,0 +1,18 @@
+#ifndef PEERSTER_BLOCK_HH
+#define PEERSTER_BLOCK_HH
+
+class Peer
+{
+public:
+  Peer(QString DNSHostName, QHostAddress IPAddress, quint16 UDPPortNum)
+  {
+    this->DNSHostName = DNSHostName;
+    this->IPAddress = IPAddress;
+    this->UDPPortNum = UDPPortNum;
+  }
+  QString DNSHostName;
+  QHostAddress IPAddress;
+  quint16 UDPPortNum;
+};
+
+#endif

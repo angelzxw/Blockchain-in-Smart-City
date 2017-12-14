@@ -1,50 +1,36 @@
-## Starter code for simple MVC Node.js homework
+##Blockchain Smart City Application
+This repository contains a blockchain based implementation of IoT Smart City Application
+Yuang Jiang | EE PhD | Yale University
+Angel Zhang | CS MS | Yale University
 
-This is a minimal [Node.js](http://nodejs.org/)
-application that shows very basic "model view controller"
-structure and form handling.
+##1.Introduction
+This project is built upon a peer-to-peer application in C++, Peerster, with the functionality and communication protocol implemented from the previous labs. The goal of this project is to deploy blockchain on Peerster so that each node has the capability of calculating the hash value, broadcasting its information once it obtains the correct hash value, and validating the information sent by other nodes.
 
-What are all these files, you ask? Below you'll find a description of each one - hopefully this will help you get started.
+1.1 Motivation
+The major issue that blockchain technology solves comes from the facts that the communication between computer databases always requires a layer of expensive fault-prone human administration or bureaucratic central authority controlling all the nodes. To be specific, this research project consider a security application of a smart city, where the image and video information captured by surveillance cameras could be tampered or maliciously manipulated at any point from being generated, sending to the backend systems, or being retrieved by users for their purposes. Because of sensitivity of the information itself, it is necessary to have a reliable decentralized system. Blockchain technology is exactly what we need to construct a single, decentralized database managed by software and shared by multiple users, without any third party authority. This creates a new flexible and secure IoT network in terms of sending or receiving authenticated information or configuration instructions.
 
-* `server.js` - this is your server code. The `express` module is how you tell your application what to do with different requests -- check out the [Express website](http://expressjs.com) for more.
-* `controllers/` - this directory contains our "controllers" or "handlers", functions that take an HTTP
-request and write to the HTTP response. It is common practice to separate your controllers into different
-files based on what part of the application they're handling. In this case, we've separated out the
-controllers for the index page and the attendees page.
-* `models/` - it is common practice to put your data storage into "models"---pieces of
-code that "model" the structure of the data upon which your application depends. In this case, we
-have just one model file and it stores only a list of names. Usually, our models would be "wired up"
-to a database, but that's not the case here---we're just storing our data in javascript.
-* `views/` - these are the "templates" or "views" for our application. These are usually HTML,
-but with another "templating language" thrown in so that we can generate different HTML given
-different data, like a mail merge. (There are many templating languages; we're using "nunjucks".)
-The controller typically gathers the data
-needed for an HTTP response, and renders the view using these data. (The data are often called
-"context data".)
-* `package.json` - this is Node's configuration file for your project. Inside you'll find information about the project, along with a list of dependencies (like Express) that you can install into `node_modules/` with `npm install`.
-* `node_modules/` - the folder containing all of your dependencies. Usually you don't need to do anything to it, but if your app is misbehaving, sometimes removing and reinstalling `node_modules/` by running `rm -rf node_modules/` and `npm install` or `yarn install` will fix it.
-* `yarn.lock` - this describes the exact state of your `node_modules/` tree without uploading the tree itself. npm modules are always being updated, so this allows you to know exactly what you're running and standardize this across installations.
-* `.gitignore` - this tells Git which files and folders to ignore -- for example, you don't want to push `node_modules/` to GitHub.
-* `Procfile` - this is how you tell Heroku how to run your code. You shouldn't need to mess with this one.
-* `.eslintrc.json` - this is where we customize the rules for how your code gets linted (checked for style/errors) - most of them come from the `eslint-config-airbnb` package. You also shouldn't need to modify this one (please don't, actually). If you're working on cloud9, their built-in editor will automatically use your eslint configuration. If you're working in another editor, it will depend on your setup.
-* `README.md` - this file :)
+1.2 Challenges
+There were many limitations implementing bookchain on Peerster based on zoo machines as we could not use SHA256, RSA, and many other resources. It took a good amount of time to set up the proper developing environment and searching for alternative solutions to achieve the same implementations.
 
-## Installing dependencies
+1.3 Technical Details
+Starting with a genesis block, upon the completion of nodes’ synchronization, each node begins to calculate hash value using SHA1 function. The input of the hash function combines name of the node, current block index, timestamp, previous hash value, and nonce. The desired hash value always starts with “000000...”, with a length of 160 bit in total. We programed each node to generate transaction information periodically, varying from 5 seconds to 8 seconds. Each transaction has to be signed by the node’s private key. When the node receives a new block, it has to verify the hash value and the signature. If the block is validated, all the information inside the new block is written into a log file in the directory /home/accts/yj252/Downloads, and the monitoring website is updated accordingly.
 
-To install dependencies, run `yarn install`. Of course, you'll want yarn installed.
-You can install that with `npm install yarn` optionally adding the `-g` flag if you
-want to install it "globally", which will depend on your preferences.
+##2.Getting Started Guide
+This project consists two parts of software development: the front end blockchain monitoring design, and the back end system implementation.
 
+2.1 Deploy Peerster
+To deploy Peerster, simply run the program,
+./peerster
 
-## Running the code
+2.2 Deploy web monitoring application
+We created a web application to visualize all the information contained in the blocks including the created time, hash value, and ledger. This application will run at localhost:3000. To successfully launch this application, make sure that you have Yarn and Nodemon installed properly.
+npm install yarn
+yarn
+npm install -g nodemon
+nodemon server.js
 
-To run this application in a development environment, use the command `yarn dev`.
-That will run the "dev" script defined in `package.json`, which itself runs
-[nodemon](https://github.com/remy/nodemon). Nodemon will automatically restart
-your application when it detects changes to your code. Each time it restarts your
-application it will run [ESLint](https://eslint.org) on your code first to detect
-common problems and enforce the JavaScript style specified in your `.eslintrc.json`
-file.
+##3.Feature Work
+Due to the limitations of current developing environment, we were not able to use SHA256, so the current version of the project is using SHA1. With a proper environment setting up in the future, we improve the performance of the blockchain system in terms of robustness and sustainability. As for the testing part, we would like to experiment the system on an actual surveillance camera network to measure the metrics of the system performance including network traffic, stability, etc. There definitely is a potential to expand the system to include more different kinds of IoT devices belonging to the Smart City category. In general, as the city population continues to grow, there is unquenchable need for solving the problems concerning efficiency, security, the environment, citizen participation, and the economy. Using the blockchain technology in IoT Smart City promises a future of greater administrative efficiency, greater transparency, and greater access to public information.
 
-In production, you should start the app with the command either `yarn start` or
-`npm start`. On Heroku, this will happen by default, in the absense of a Procfile.
+##Presentation Link:
+https://docs.google.com/presentation/d/1IVS4sdnH_xrGv7dJMcMQAcYkxMsXuCbQqGlGE3t9kqQ/edit?usp=sharing
