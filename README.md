@@ -3,6 +3,9 @@ This repository contains a blockchain based implementation of IoT Smart City App
 Yuang Jiang | EE PhD | Yale University
 Angel Zhang | CS MS | Yale University
 
+## Presentation Link:
+https://docs.google.com/presentation/d/1IVS4sdnH_xrGv7dJMcMQAcYkxMsXuCbQqGlGE3t9kqQ/edit?usp=sharing
+
 ## 1.Introduction
 This project is built upon a peer-to-peer application in C++, Peerster, with the functionality and communication protocol implemented from the previous labs. The goal of this project is to deploy blockchain on Peerster so that each node has the capability of calculating the hash value, broadcasting its information once it obtains the correct hash value, and validating the information sent by other nodes.
 
@@ -31,6 +34,3 @@ nodemon server.js
 
 ## 3.Feature Work
 Due to the limitations of current developing environment, we were not able to use SHA256, so the current version of the project is using SHA1. With a proper environment setting up in the future, we improve the performance of the blockchain system in terms of robustness and sustainability. As for the testing part, we would like to experiment the system on an actual surveillance camera network to measure the metrics of the system performance including network traffic, stability, etc. There definitely is a potential to expand the system to include more different kinds of IoT devices belonging to the Smart City category. In general, as the city population continues to grow, there is unquenchable need for solving the problems concerning efficiency, security, the environment, citizen participation, and the economy. Using the blockchain technology in IoT Smart City promises a future of greater administrative efficiency, greater transparency, and greater access to public information.
-
-## Presentation Link:
-https://docs.google.com/presentation/d/1IVS4sdnH_xrGv7dJMcMQAcYkxMsXuCbQqGlGE3t9kqQ/edit?usp=sharing
